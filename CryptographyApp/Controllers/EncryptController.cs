@@ -1,5 +1,7 @@
 ﻿using CryptographyApp.DTOs;
+using CryptographyApp.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace CryptographyApp.Controllers
 {
@@ -10,7 +12,11 @@ namespace CryptographyApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(EncryptInput input)
         {
-            return Ok();
+            var converter = TypeDescriptor.GetConverter(typeof(CCardData));
+
+            var toEntity = (CCardData)converter.ConvertFrom(input)!;
+
+            return Ok(toEntity);
         }
     }
 }

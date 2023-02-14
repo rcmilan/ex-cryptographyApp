@@ -6,21 +6,21 @@ namespace CryptographyApp.Entities
     [TypeConverter(typeof(CCardDataConverter))]
     public class CCardData
     {
-        public CCardData()
+        public CCardData(long id, string userDocument, string creditCardToken, long value) : this(userDocument, creditCardToken, value)
         {
-
+            Id = id;
         }
 
-        public CCardData(string userDocument, string creditCardToken, long value) : this()
+        public CCardData(string userDocument, string creditCardToken, long value)
         {
             UserDocument = userDocument;
             CreditCardToken = creditCardToken;
             Value = value;
         }
 
-        public string CreditCardToken { get; set; }
-        public long Id { get; set; }
-        public string UserDocument { get; set; }
-        public long Value { get; set; }
+        public string CreditCardToken { get; private set; }
+        public long Id { get; private set; }
+        public string UserDocument { get; private set; }
+        public long Value { get; private set; }
     }
 }
