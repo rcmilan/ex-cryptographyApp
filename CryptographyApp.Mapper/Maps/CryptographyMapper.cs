@@ -19,7 +19,7 @@ namespace CryptographyApp.Mapper.Maps
         }
 
         private static MethodInfo GetMapMethod<TSource, TResult>()
-                    where TSource : class
+            where TSource : class
             where TResult : class
         {
             var aName = new AssemblyName(ASSEMBLY_NAME);
