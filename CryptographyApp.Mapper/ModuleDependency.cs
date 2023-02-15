@@ -5,7 +5,6 @@ namespace CryptographyApp.Mapper
 {
     public static class ModuleDependency
     {
-
         public static IServiceCollection AddCryptographyMapper(this IServiceCollection services)
         {
             services.AddSingleton<ICryptographyMapper, CryptographyMapper>();
