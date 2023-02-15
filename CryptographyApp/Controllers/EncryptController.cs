@@ -1,5 +1,6 @@
 ﻿using CryptographyApp.DTOs;
 using CryptographyApp.Entities;
+using CryptographyApp.Mapper.Maps;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 
@@ -9,8 +10,16 @@ namespace CryptographyApp.Controllers
     [ApiController]
     public class EncryptController : ControllerBase
     {
-        [HttpPost]
-        public async Task<IActionResult> Post(EncryptInput input)
+        [HttpPost("ILMapper")]
+        public async Task<IActionResult> PostILMapper([FromServices] ICryptographyMapper mapper, EncryptInput input)
+        {
+            var res = mapper.Map<EncryptInput, CCardData>(input);
+
+            return Ok(res);
+        }
+
+        [HttpPost("TypeConverter")]
+        public async Task<IActionResult> PostTypeConverter(EncryptInput input)
         {
             var converter = TypeDescriptor.GetConverter(typeof(CCardData));
 
