@@ -2,3 +2,4 @@
 
 ## Referências
 - [backend-br/desafios](https://github.com/backend-br/desafios/tree/master/02-Medium/Criptografia)
+- [sharplab ref](https://sharplab.io/#v2:C4LglgNgPgAgTARgLACgYAYAEMEDoAqApgB7ADcqqMAzNnJgLICeAwhAIYDOnAgqgN6pMw7LRxYAcgHsAtoUz9MAc0LlMnVWUwBfVLpRUx9Zmy6cAQgKEia2BJNnzFKtRrX79hunYDsC68IBonYAbIysHNzm4abcDOwADgAUJpG8mDIRZjwAlEGCKCJFmABGTMCEANoAupgVpFI8FuWEnJgAvJgAogB2AMZSACZgPUq4PADKLACS07gA4qrmLZxJmbG8uNJyORSFxYH7BzB+PYQA7jFplkfFBQcH2/KdLFI9AG6EAE7ABFLmXEIIQALBNgF8RkokvVgI1mhVOHlbkVtHsUUEgrYYMDGOwRkkcv5bh4gA)
