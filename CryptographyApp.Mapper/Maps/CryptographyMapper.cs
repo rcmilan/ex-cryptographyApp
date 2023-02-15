@@ -6,9 +6,9 @@ namespace CryptographyApp.Mapper.Maps
 {
     internal class CryptographyMapper : ICryptographyMapper
     {
-        private const string ASSEMBLY_NAME = "CryptographyAppAssemby";
-        private const string METHOD_NAME = "Map";
-        private const string TYPEBUILDER_NAME = "CryptographyMapper";
+        private const string ASSEMBLY_NAME = "CryptographyAppAssembly";
+        private const string METHOD_NAME = "MapMethod";
+        private const string TYPEBUILDER_NAME = "MyCryptographyMapper";
 
         public TResult Map<TSource, TResult>(in TSource source)
             where TSource : class
@@ -53,13 +53,14 @@ namespace CryptographyApp.Mapper.Maps
                 gen.Emit(OpCodes.Ldarg_0);
                 gen.Emit(OpCodes.Callvirt, property.GetMethod!);
 
-                var attr = (SensitiveInfoAttribute[])property.GetCustomAttributes(typeof(SensitiveInfoAttribute), false);
+                //var attr = (SensitiveInfoAttribute[])property.GetCustomAttributes(typeof(SensitiveInfoAttribute), false);
 
-                if (attr.Length > 0)
-                {
-                    // possui o attr SensitiveInfoAttribute
-                }
-                else
+                //if (attr.Length > 0)
+                //{
+                //    // possui o attr SensitiveInfoAttribute
+                //    // chama o setter + função de criptografia
+                //}
+                //else
                     gen.Emit(OpCodes.Callvirt, toProp.SetMethod!);
             }
 
