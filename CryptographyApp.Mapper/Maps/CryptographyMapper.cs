@@ -1,6 +1,7 @@
 ﻿using CryptographyApp.Mapper.CryptographyAttributes;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.Intrinsics.Arm;
 
 namespace CryptographyApp.Mapper.Maps
 {
@@ -53,15 +54,14 @@ namespace CryptographyApp.Mapper.Maps
                 gen.Emit(OpCodes.Ldarg_0);
                 gen.Emit(OpCodes.Callvirt, property.GetMethod!);
 
-                //var attr = (SensitiveInfoAttribute[])property.GetCustomAttributes(typeof(SensitiveInfoAttribute), false);
+                var attr = (SensitiveInfoAttribute[])property.GetCustomAttributes(typeof(SensitiveInfoAttribute), false);
 
-                //if (attr.Length > 0)
-                //{
-                //    // possui o attr SensitiveInfoAttribute
-                //    // chama o setter + função de criptografia
-                //}
-                //else
-                    gen.Emit(OpCodes.Callvirt, toProp.SetMethod!);
+                if (attr.Length > 0)
+                {
+                    // Adiciona método de criptografia
+                }
+
+                gen.Emit(OpCodes.Callvirt, toProp.SetMethod!);
             }
 
             gen.Emit(OpCodes.Ret);
